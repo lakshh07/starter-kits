@@ -7,7 +7,7 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 8545,
+      port: 9545,
       network_id: "*", // Match any network id
     },
     polygon: {
@@ -19,10 +19,7 @@ module.exports = {
     },
     mumbai: {
       provider: () =>
-        new HDWalletProvider(
-          process.env.REACT_APP_POLYGON_PRIVATE,
-          process.env.REACT_APP_POLYGON_URL
-        ),
+        new HDWalletProvider(mnemonic, "https://rpc-mumbai.maticvigil.com"),
       network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 200,

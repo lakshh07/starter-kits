@@ -11,6 +11,7 @@ import TransactionTable from "./components/TransactionTable";
 
 import "./App.css";
 import { Box, Heading } from "@chakra-ui/react";
+import Payment from "./components/Payment";
 
 const getLibrary = (provider) => {
   const library = new Web3Provider(provider);
@@ -25,8 +26,14 @@ function App() {
         <Header />
         <Content>
           <Box align="center">
-            <Heading fontWeight={400}>Transaction History</Heading>
+            <Heading fontSize="1.7em" fontWeight={400}>
+              Send Payments
+            </Heading>
+            <Payment />
 
+            <Heading fontSize="1.7em" fontWeight={400}>
+              Transaction History
+            </Heading>
             <TransactionTable />
           </Box>
         </Content>

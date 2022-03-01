@@ -36,7 +36,7 @@ function TransactionTable() {
   const getHistory = (address) => {
     axios({
       method: "get",
-      url: `https://api.polygonscan.com/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.REACT_APP_POLYGONSCAN_API_KEY}`,
+      url: `https://api-testnet.polygonscan.com/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.REACT_APP_POLYGONSCAN_API_KEY}`,
       responseType: "json",
     }).then(function (response) {
       // console.log(response.data.result);
@@ -45,8 +45,10 @@ function TransactionTable() {
   };
 
   useEffect(() => {
-    console.log(account);
-    // getHistory("0x252c333a433c83ceac5e005936cf60cfb4ab2981");
+    setInterval(() => {
+      getHistory(account);
+    }, 7000);
+    // getHistory(account);
     console.log(history, "history");
   }, [history, account]);
 
